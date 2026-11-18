@@ -110,9 +110,6 @@ def compose_character(ch, clip, idx):
     if ch.get("signature"):
         head.append(ch["signature"])
     line = "{}：{}".format(label, "，".join(head))
-    state = (clip.get("states") or {}).get(ch["id"])
-    if state:
-        line += "；本条状态：" + state
     return line
 
 
@@ -416,6 +413,72 @@ def check_chapter(chapter, only_clip=None):
                     errs.append("{} 末镜与 {} 首镜同人同景别同角度（{} / {} / {}）：跨条重复，换人、换角度或换景别".format(tag, ntag, sa, nxt["shot_size"], a.get("angle")))
                 else:
                     warns.append("{} 末镜与 {} 首镜同人同景别（{} / {}）：相接重复".format(tag, ntag, sa, nxt["shot_size"]))
+
+    # ---- 在场连续性：空镜后不许直接切到满场 ----
+    EMPTY_WORDS = ["空着", "空无一人", "空荡荡", "空荡", "没有人", "没人", "无人", "一个人也没有", "桌边没人"]
+    GROUP_WORDS = ["两人", "三人", "四人", "两个人", "三个人", "四个人", "几个人", "众人", "坐满", "一桌人", "满屋人"]
+    ENTER_WORDS = ["走进", "走入", "推门", "进门", "入座", "落座", "坐下", "下楼", "踏进",
+                   "踏入", "进入", "来到", "走向", "迈步", "跨进", "跨过", "进门", "起身", "站起",
+                   "围坐", "落坐"]
+    all_names = [c["name"] for c in chapter.get("characters", [])]
+
+    def vis_text(s):
+        v = s.get("visual", {})
+        return v.get("action", "") + "，" + v.get("environment", "")
+
+    def entry_near(text, token, span=16):
+        start = 0
+        while True:
+            i = text.find(token, start)
+            if i < 0:
+                return False
+            w = text[max(0, i - span):i + len(token) + span]
+            if any(e in w for e in ENTER_WORDS):
+                return True
+            start = i + 1
+
+    def is_empty_shot(s):
+        t = vis_text(s)
+        if any(n in t for n in all_names):
+            return False
+        return any(w in t for w in EMPTY_WORDS)
+
+    def is_populated(s):
+        t = vis_text(s)
+        return bool([n for n in all_names if n in t] or [g for g in GROUP_WORDS if g in t])
+
+    pairs = []
+    for ci, clip in enumerate(clips):
+        ctag = "Clip{:02d}".format(clip["no"])
+        for i in range(len(clip["shots"]) - 1):
+            pairs.append((clip["shots"][i], clip["shots"][i + 1], ctag, "同条"))
+        if ci + 1 < len(clips) and clips[ci + 1].get("scene") == clip.get("scene"):
+            ntag = "Clip{:02d}".format(clips[ci + 1]["no"])
+            pairs.append((clip["shots"][-1], clips[ci + 1]["shots"][0], ctag + "→" + ntag, "跨条"))
+
+    for prev, nxt, tag, kind in pairs:
+        if not is_empty_shot(prev) or not is_populated(nxt):
+            continue
+        t = vis_text(nxt)
+        missing = []
+        for g in GROUP_WORDS:
+            if g in t and not entry_near(t, g):
+                missing.append(g)
+        for n in all_names:
+            if n in t and not entry_near(t, n):
+                missing.append(n)
+        if missing:
+            errs.append("{}（{}）空镜后直接切到已有人物：{} 没有就近的进场/入座动作；首镜写「空着」后，不许下一镜直接「三人已坐」或「人已在桌边」，要么首镜就写出在场人物，要么让每个人在本镜可见进入（推门、下楼、走进、入座）".format(tag, kind, "、".join(sorted(set(missing))))) 
+        else:
+            warns.append("{}（{}）空镜后接人物进场，确认进场动作覆盖了画面里出现的每个人".format(tag, kind))
+
+    # 对话段不许用空镜起手：15 秒里没有多余镜头留给纯空间建立
+    for clip in clips:
+        if only_clip and clip["no"] != only_clip:
+            continue
+        shots = clip.get("shots", [])
+        if shots and any(s.get("dialogue") for s in shots) and is_empty_shot(shots[0]):
+            errs.append("Clip{:02d}：首镜是空镜，但本条有台词；对话段的首镜必须带在场人物，删掉空镜，直接从人物或人物进场起镜".format(clip["no"]))
 
     # ---- 位移连续性：换空间必须有可见转移动作 ----
     PLACE = [
