@@ -59,7 +59,7 @@ def render_md(chapter, clips):
     lines.append("所需人物：" + ("、".join(cast_names) if cast_names else "无"))
 
     for c in clips:
-        lines += ["", "## 第{}段，{}个子镜头".format(c["no"], len(c["shots"]), "", "```text"]
+        lines += ["", "## 第{}段，{}个子镜头".format(c["no"], len(c["shots"])), "", "```text"]
         lines.append(render_clip(chapter, c).rstrip("\n"))
         lines.append("```")
     return "\n".join(lines) + "\n"
