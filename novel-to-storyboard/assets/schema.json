@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "novel-storyboard/2.0",
   "title": "小说转分镜 章级机读数据",
-  "description": "一章一份。章级锚点只定义一次，每条 Clip 通过 cast / assets / states 引用并在渲染时全量展开。由 render_sd2.py 渲染为 Seedance 2.0 提示词。",
+  "description": "一章一份。章级锚点只定义一次，每条 Clip 通过 cast / assets 引用并在渲染时全量展开。由 render_sd2.py 渲染为 Seedance 2.0 提示词。",
   "type": "object",
   "required": [
     "schema_version",
@@ -332,13 +332,6 @@
             "type": "string"
           },
           "description": "本条实际上传的素材，按上传顺序排列，决定 @图片1…N"
-        },
-        "states": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "人物本条状态，键为 characters.id；渲染为 本条状态：…"
         },
         "ambience": {
           "type": "string",
