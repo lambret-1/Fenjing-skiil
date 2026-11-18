@@ -56,9 +56,6 @@
         "lead"
       ],
       "assets": [],
-      "states": {
-        "lead": "TODO：本条状态：衣角沾泥 / 受伤 / 换装 / 手持物"
-      },
       "ambience": "TODO：本条环境音",
       "music": "TODO：本条配乐，没有就删掉这一行",
       "shots": [
