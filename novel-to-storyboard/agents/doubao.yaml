@@ -1,0 +1,7 @@
+interface:
+  display_name: "小说转分镜"
+  short_description: "整章小说拆成 15 秒 Seedance 2.0 分镜"
+  default_prompt: "使用 $novel-to-storyboard 把这一章小说拆成分镜"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,122 @@
+{
+  "schema_version": "novel-storyboard/2.0",
+  "meta": {
+    "title": "TODO：作品名",
+    "chapter": "TODO：第1章 或 场3",
+    "ratio": "16:9",
+    "model": "Seedance 2.0"
+  },
+  "style": {
+    "era": "TODO：年代与地域",
+    "look": "TODO：影像风格，默认写实",
+    "palette": "TODO：色调",
+    "grain": "TODO：质感",
+    "extra": [
+      "16:9 画幅"
+    ]
+  },
+  "characters": [
+    {
+      "id": "lead",
+      "name": "TODO：主角名",
+      "age": "TODO：年龄感",
+      "features": [
+        "TODO：发型",
+        "TODO：服装主色与轮廓"
+      ],
+      "signature": "",
+      "asset": null
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_1",
+      "name": "TODO：场景名",
+      "place": "TODO：地点类型与空间层次",
+      "time": "TODO：时间",
+      "light": "TODO：光线与主光源",
+      "props": [],
+      "asset": null
+    }
+  ],
+  "assets": [],
+  "constraints": [
+    "保持无字幕，避免生成任何文字或字幕",
+    "台词仅人声，画面不出现字幕文字",
+    "不要生成 Logo、水印",
+    "人物面部稳定不变形，禁止同款分身或双胞胎"
+  ],
+  "clips": [
+    {
+      "no": 1,
+      "duration_s": 15,
+      "ratio": "16:9",
+      "scene": "scene_1",
+      "cast": [
+        "lead"
+      ],
+      "assets": [],
+      "states": {
+        "lead": "TODO：本条状态：衣角沾泥 / 受伤 / 换装 / 手持物"
+      },
+      "ambience": "TODO：本条环境音",
+      "music": "TODO：本条配乐，没有就删掉这一行",
+      "shots": [
+        {
+          "no": 1,
+          "focal": {
+            "mm": 35,
+            "type": "广角",
+            "dof": "中景深"
+          },
+          "camera": {
+            "subject": "TODO：主角名",
+            "height": "平视",
+            "angle": "背后跟随",
+            "text": "TODO：主角名 + 背后平视跟随"
+          },
+          "composition": "中心构图",
+          "movement": "跟拍",
+          "shot_size": "中景",
+          "visual": {
+            "action": "TODO：谁在画面哪个位置、朝哪、身体哪部分怎么动、幅度速度",
+            "environment": "TODO：前景是什么、中景是什么、背景是什么、雾雨尘人群",
+            "props": [],
+            "light": "TODO：光从哪来、明暗关系、有无投影"
+          },
+          "dialogue": [],
+          "eyeline": "TODO：视线落点",
+          "focus": "TODO：焦点锁定对象",
+          "stability": "微晃"
+        },
+        {
+          "no": 2,
+          "focal": {
+            "mm": 24,
+            "type": "广角",
+            "dof": "深景深"
+          },
+          "camera": {
+            "subject": "TODO：场景全貌",
+            "height": "平视",
+            "angle": "远眺",
+            "text": "TODO：场景全貌 + 平视远眺"
+          },
+          "composition": "引导线构图",
+          "movement": "固定镜头",
+          "shot_size": "大远景",
+          "visual": {
+            "action": "TODO：谁在画面哪个位置、朝哪、身体哪部分怎么动",
+            "environment": "TODO：前景是什么、中景是什么、背景是什么",
+            "props": [],
+            "light": "TODO：光从哪来、明暗关系、有无投影"
+          },
+          "dialogue": [],
+          "eyeline": "TODO：视线落点",
+          "focus": "TODO：焦点锁定对象",
+          "stability": "稳定"
+        }
+      ]
+    }
+  ]
+}
