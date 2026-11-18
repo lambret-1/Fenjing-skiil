@@ -486,7 +486,7 @@ def main():
         for c in clips:
             print("Clip {:02d}｜{}s｜{}｜{} 镜｜cast {}".format(
                 c["no"], int(c["duration_s"]), c["ratio"], len(c["shots"]),
-                "、".join(c.get("cast", []))).replace("［", "["))
+                "、".join(c.get("cast", []))))
         return
 
     errs, warns = check_chapter(chapter, args.clip if not args.all else None)
