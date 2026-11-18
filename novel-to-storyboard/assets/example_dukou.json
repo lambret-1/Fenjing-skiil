@@ -1,0 +1,256 @@
+{
+  "schema_version": "novel-storyboard/2.0",
+  "meta": {
+    "title": "雾渡",
+    "chapter": "第1章 渡口",
+    "ratio": "16:9",
+    "model": "Seedance 2.0",
+    "notes": "四镜示例：用于校验渲染格式，台词与场景沿用原稿。"
+  },
+  "style": {
+    "era": "1930年代江南",
+    "look": "民国写实",
+    "palette": "冷灰绿低饱和",
+    "grain": "胶片颗粒",
+    "extra": [
+      "16:9 画幅"
+    ]
+  },
+  "characters": [
+    {
+      "id": "shen",
+      "name": "沈知微",
+      "age": "二十出头",
+      "features": [
+        "素色旗袍",
+        "梳低髻",
+        "身形偏瘦"
+      ],
+      "signature": "",
+      "asset": "img_shen"
+    },
+    {
+      "id": "laozhou",
+      "name": "老周",
+      "age": "六十上下",
+      "features": [
+        "戴斗笠",
+        "披蓑衣",
+        "皮肤黝黑"
+      ],
+      "signature": "右手中指缺半截",
+      "asset": "img_laozhou"
+    },
+    {
+      "id": "huer",
+      "name": "胡二爷",
+      "age": "四十来岁",
+      "features": [
+        "灰布短褂",
+        "肩背微驼",
+        "腰间系汗巾"
+      ],
+      "signature": "",
+      "asset": "img_huer"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "dukou",
+      "name": "渡口栈桥",
+      "place": "江南渡口木栈桥，桥头接泥岸土路，桥尾停一条乌篷船",
+      "time": "清晨",
+      "light": "浓雾，天光未亮，散射光为主光源",
+      "props": [],
+      "asset": "img_scene"
+    }
+  ],
+  "assets": [
+    {
+      "id": "img_scene",
+      "kind": "image",
+      "role": "scene",
+      "name": "渡口栈桥场景图"
+    },
+    {
+      "id": "img_shen",
+      "kind": "image",
+      "role": "character",
+      "name": "沈知微定妆图"
+    },
+    {
+      "id": "img_laozhou",
+      "kind": "image",
+      "role": "character",
+      "name": "老周定妆图"
+    },
+    {
+      "id": "img_huer",
+      "kind": "image",
+      "role": "character",
+      "name": "胡二爷定妆图"
+    }
+  ],
+  "constraints": [
+    "画质保持高清，细节丰富，光影柔和，人物面部稳定不变形，禁止同款分身或双胞胎",
+    "保持无字幕，避免生成任何文字或字幕，台词仅人声",
+    "不要生成 Logo、水印"
+  ],
+  "clips": [
+    {
+      "no": 1,
+      "duration_s": 15,
+      "ratio": "16:9",
+      "scene": "dukou",
+      "cast": [
+        "shen",
+        "laozhou",
+        "huer"
+      ],
+      "assets": [
+        "img_scene",
+        "img_shen",
+        "img_laozhou",
+        "img_huer"
+      ],
+      "states": {
+        "shen": "衣角沾泥，双臂抱旧皮箱",
+        "laozhou": "蹲在船头，旱烟在手",
+        "huer": "气喘，扁担上肩"
+      },
+      "ambience": "雾里河岸土路上急促的脚步踩着水洼，河水轻拍栈桥木桩，远处棆子敲了两下，随后跳板上货筐晃动的声响由远及近",
+      "music": "极慢速度的低音弦乐持续音，几乎贴着寂静",
+      "shots": [
+        {
+          "no": 1,
+          "focal": {
+            "mm": 35,
+            "type": "广角",
+            "dof": "中景深"
+          },
+          "camera": {
+            "subject": "沈知微",
+            "height": "平视",
+            "angle": "背后跟随",
+            "text": "沈知微 + 背后平视跟随"
+          },
+          "composition": "中心构图",
+          "movement": "跟拍",
+          "shot_size": "中景",
+          "visual": {
+            "action": "镜头从背后平稳跟随。沈知微位于画面中央偏右，背对镜头，双臂把旧皮箱搂在胸前，肩背前倾，沿泥泞河岸快步小跑，鞋底踏过水洼，泥水溅到小腿。",
+            "environment": "前景是发软的岸土与水洼，中景是她被雾吞掉一半的背影，背景三十步外的栈桥只剩模糊轮廓。",
+            "props": [],
+            "light": "天光未亮，散射光透下来，人物边缘发灰，没有投影。"
+          },
+          "dialogue": [],
+          "eyeline": "前方雾中",
+          "focus": "锁定沈知微背影与怀中皮箱",
+          "stability": "微晃"
+        },
+        {
+          "no": 2,
+          "focal": {
+            "mm": 24,
+            "type": "广角",
+            "dof": "深景深"
+          },
+          "camera": {
+            "subject": "栈桥全貌",
+            "height": "平视",
+            "angle": "远眺",
+            "text": "栈桥全貌 + 平视远眺"
+          },
+          "composition": "引导线构图",
+          "movement": "固定镜头",
+          "shot_size": "大远景",
+          "visual": {
+            "action": "固定镜头远望。栈桥位于画面中央偏左，木桩从浓雾里显出轮廓。老周蹲在栈桥尽头的船头，在画面右侧三分之一处，缩成深色剪影，斗笠压得很低。",
+            "environment": "前景是灰白的河面反光，中景是逐渐显形的木桩，背景被雾吃掉。",
+            "props": [
+              "旱烟锅在嘴边，火光一明一暗"
+            ],
+            "light": "天光未亮，冷灰散射光从雾后透出，唯一暖色是旱烟火点。"
+          },
+          "dialogue": [],
+          "eyeline": "老周低头看着烟锅",
+          "focus": "锁定船头的老周剪影",
+          "stability": "稳定",
+          "sfx": [
+            "远处棆子声闷闷响两下"
+          ]
+        },
+        {
+          "no": 3,
+          "focal": {
+            "mm": 35,
+            "type": "广角",
+            "dof": "中景深"
+          },
+          "camera": {
+            "subject": "老周",
+            "height": "平视",
+            "angle": "正侧面",
+            "text": "老周 + 平视正侧面"
+          },
+          "composition": "三分法",
+          "movement": "固定镜头",
+          "shot_size": "全景",
+          "visual": {
+            "action": "固定镜头，机位在船头侧前方。老周位于画面中央偏右，正侧面朝画面左侧，从船板站起身，膝盖先直起再抬腰，一手拢在嘴边，一手扶船舷，朝雾里的岸上吆喝，脖子前伸。",
+            "environment": "前景是船板与散落的缆绳，中景是他半身前倾的姿势，背景是化不开的白雾。",
+            "props": [
+              "斗笠压在前额"
+            ],
+            "light": "天光未亮，散射光打在斗笠斜面上，蓑衣褶皱里有细碎暗影，没有投影。"
+          },
+          "dialogue": [
+            {
+              "speaker": "老周",
+              "text": "上船喽——过河的抓紧，雾要变天。",
+              "tone": "扗着嗓子"
+            }
+          ],
+          "eyeline": "岸上雾中",
+          "focus": "锁定老周上半身",
+          "stability": "稳定"
+        },
+        {
+          "no": 4,
+          "focal": {
+            "mm": 35,
+            "type": "广角",
+            "dof": "中景深"
+          },
+          "camera": {
+            "subject": "胡二爷",
+            "height": "平视",
+            "angle": "侧面跟随",
+            "text": "胡二爷 + 侧面平视跟随"
+          },
+          "composition": "对角线构图",
+          "movement": "跟拍",
+          "shot_size": "全景",
+          "visual": {
+            "action": "镜头从侧面平稳跟随。胡二爷在画面中央，面向画面右侧，挑着货担沿跳板赶来，扁担压在右肩，货筐随脚步颤动。他胸口起伏，边跑边扭头朝船头扬声招呼。",
+            "environment": "前景是跳板边缘与晃动的货筐，中景是他的全身和颤动的扁担，背景雾中露出船头轮廓。",
+            "props": [
+              "扁担压在右肩，绳结勒紧"
+            ],
+            "light": "天光未亮，散射光落下，人物边缘发灰，跳板木面有水光反射。"
+          },
+          "dialogue": [
+            {
+              "speaker": "胡二爷",
+              "text": "等等二爷我！这雾天赶船，命都得跑掉半条。",
+              "tone": "喘着气"
+            }
+          ],
+          "eyeline": "船头",
+          "focus": "锁定胡二爷与货担",
+          "stability": "微晃"
+        }
+      ]
+    }
+  ]
+}
